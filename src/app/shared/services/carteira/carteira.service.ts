@@ -25,10 +25,10 @@ export class CarteiraService {
     );
   }
 
-  filtroIndicadoresPorRelease(nomeReponsavel: string, nomeRelease: string): Observable<ListaIndicadores[]> {
+  filtroIndicadoresPorRelease(nomeReponsavel: string, nomeRelease: string): Observable<ListaIndicadores> {
     const url = apiUrl + `acompanhamentoDetalhesCarteiraProjeto/?nome=${nomeReponsavel}&release=${nomeRelease}`;
-    return this.http.get<ListaIndicadores[]>(url).pipe(
-      catchError(this.handleError<ListaIndicadores[]>(`filtroIndicadoresPorRelease nomeRelease=${nomeRelease}`))
+    return this.http.get<ListaIndicadores>(url).pipe(
+      catchError(this.handleError<ListaIndicadores>(`filtroIndicadoresPorRelease nomeRelease=${nomeRelease}`))
     );
   }
   // tslint:disable-next-line:typedef

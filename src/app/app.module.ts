@@ -1,3 +1,5 @@
+import { MatDialogModule } from '@angular/material/dialog';
+import { CarteiraService } from './shared/services/carteira/carteira.service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { FuseWidgetModule } from './../@fuse/components/widget/widget.module';
@@ -22,14 +24,14 @@ import { fuseConfig } from 'app/fuse-config';
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
-import { AcompanhamentoCarteiraComponent } from './main/acompanhamento-carteira/acompanhamento-carteira.component';
 
 import { MatTabsModule, MatTableModule, MatPaginatorModule,
 MatInputModule,
 MatFormFieldModule, 
-MatGridListModule,
-MatButtonToggleModule} from '@angular/material';
+MatGridListModule} from '@angular/material';
 import { FuseDemoModule } from '@fuse/components/demo/demo.module';
+import { AcompanhamentoCarteiraComponent } from './main/acompanhamento-carteira/acompanhamento-carteira.component';
+import { AcompanhamentoIndicadoresComponent } from './main/acompanhamento-indicadores/acompanhamento-indicadores.component';
 
 const appRoutes: Routes = [
     {path: 'acompanhamento-carteira', component: AcompanhamentoCarteiraComponent}
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         AppComponent,
-        AcompanhamentoCarteiraComponent
+        AcompanhamentoCarteiraComponent,
+        AcompanhamentoIndicadoresComponent
     ],
     imports : [
         BrowserModule,
@@ -54,6 +57,15 @@ const appRoutes: Routes = [
         // Material
         MatButtonModule,
         MatIconModule,
+        MatTabsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatSelectModule,
+        MatSlideToggleModule,
+        MatDialogModule,
 
         // Fuse modules
         FuseModule.forRoot(fuseConfig),
@@ -61,30 +73,22 @@ const appRoutes: Routes = [
         FuseSharedModule,
         FuseSidebarModule,
         FuseThemeOptionsModule,
+        FuseDemoModule,
+        FuseWidgetModule,
 
         // App modules
         LayoutModule,
         SampleModule,
 
-        MatTabsModule,
-        FuseDemoModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatInputModule,
-        MatFormFieldModule,
-
-        FormsModule,
-        FuseWidgetModule,
-        MatGridListModule,
-        MatSelectModule,
-        MatSlideToggleModule
+        FormsModule
     ],
     providers   :[
-        AcompanhamentoCarteiraComponent
+        CarteiraService
     ],
     bootstrap   : [
         AppComponent
-    ]
+    ],
+    entryComponents: [AcompanhamentoIndicadoresComponent]
 })
 export class AppModule
 {

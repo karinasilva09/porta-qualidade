@@ -1,59 +1,58 @@
-<div class="page-layout carded fullwidth tabbed inner-scroll">
+<div id="academy-courses" class="page-layout simple">
+    <div class="content p-24">
 
-    <!-- TOP BACKGROUND -->
-    <div class="top-bg"></div>
-    <!-- / TOP BACKGROUND -->
+        <div fxLayout="column" fxLayoutAlign="center">
 
-    <!-- CENTER -->
-    <div class="center">
+            <div class="filters" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="row"
+                fxLayoutAlign.gt-xs="space-between center">
 
-        <!-- CONTENT HEADER -->
-        <div class="header p-24" fxLayout="row" fxLayoutAlign="start center">
-            <h2 class="m-0">Full width with tabs and inner scroll</h2>
-        </div>
-        <!-- / CONTENT HEADER -->
-
-        <!-- CONTENT CARD -->
-        <div class="content-card">
-
-            <!-- CONTENT -->
-            <div class="content">
-
-                <mat-tab-group (selectedIndexChange)="getListaDeIndicadoresPorRelease($event)">
-
-                    <mat-tab *ngFor="let release of listaRelease; let index = index" label="{{release.nome}}">
-                        <div class="tab-content p-24" fusePerfectScrollbar>
-                            <table style="width: 100%;" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-                                <!--- Note that these columns can be defined in any order.
-                                      The actual rendered columns are set as a property on the row definition" -->
-
-                                <!-- Position Column -->
-                                <ng-container matColumnDef="nome">
-                                    <th mat-header-cell *matHeaderCellDef> Nome </th>
-                                    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
-                                </ng-container>
-
-                                <!-- Name Column -->
-                                <ng-container matColumnDef="valor">
-                                    <th mat-header-cell *matHeaderCellDef> Valor </th>
-                                    <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
-                                </ng-container>
-
-                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                            </table>
-                        </div>
-                    </mat-tab>
-                </mat-tab-group>
+                <mat-form-field appearance="outline" class="category-selector">
+                    <mat-label>Release</mat-label>
+                    <mat-select>
+                        <mat-option [value]="'all'">
+                            Todas
+                        </mat-option>
+                        <mat-option *ngFor="let release of listaRelease" [value]="release.nome">
+                            {{ release.nome }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
 
             </div>
-            <!-- / CONTENT -->
+
+            <div class="courses" fxLayout="row wrap" fxLayoutAlign="center">
+
+                <div class="course" *ngFor="let release of listaRelease" fxFlex="100" fxFlex.gt-xs="50"
+                    fxFlex.gt-sm="33" [ngClass]="release.nome" (click)="openDialog(release.nome, 'ANA CRISTINA BRASIL VILLELA')">
+
+                    <div class="course-content" fxLayout="column" fxFlex="1 1 auto">
+
+                        <div class="header" fxLayout="row" fxLayoutAlign="center center"
+                            [ngClass]="release.nome + '-bg'">
+
+                            <div class="category" fxFlex>
+                                {{release.nome}}
+                            </div>
+
+                            <div class="length" fxLayout="row" fxLayoutAlign="center center">
+                                <mat-icon class="length-icon s-20">access_time</mat-icon>
+                                <div class="min">{{release.total}}</div>
+                            </div>
+
+                        </div>
+
+                        <div class="content" fxLayout="column" fxLayoutAlign="center center" fxFlex="1 1 auto">
+                            <div class="h1">{{release.nome}}</div>
+                            <div class="updated">{{release.total}}</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
-        <!-- / CONTENT CARD -->
 
     </div>
-    <!-- / CENTER -->
-
 </div>

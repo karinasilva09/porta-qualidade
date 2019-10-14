@@ -9,10 +9,10 @@ export class ListaRelease {
 }
 
 export class ListaIndicadores {
-    listaIndicadores: Indicador[];   
+    listaIndicadores: Indicador[];
 }
 
-export class Indicador{
+export class Indicador {
     nome: string;
-    valor: string;
+    valor: string;  
 }
