@@ -3,47 +3,53 @@
 
         <div fxLayout="column" fxLayoutAlign="center">
 
-            <div class="filters" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="row"
-                fxLayoutAlign.gt-xs="space-between center">
+            <div class="box-filter">
+                <div class="title-filter">
+                    Filtro: Release
+                </div>
+                <div class="filters">
+                    <mat-label>Releases</mat-label>
+                </div>
+                <div class="filters" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="row"
+                    fxLayoutAlign.gt-xs="space-between center">
 
-                <mat-form-field appearance="outline" class="category-selector">
-                    <mat-label>Release</mat-label>
-                    <mat-select>
-                        <mat-option [value]="'all'">
-                            Todas
-                        </mat-option>
-                        <mat-option *ngFor="let release of listaRelease" [value]="release.nome">
-                            {{ release.nome }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+                    <mat-form-field appearance="outline" class="category-selector">
+                        <mat-select (selectionChange)="filtroPorRelease($event)" [(value)]="selected">
+                            <mat-option [value]="'todas'">
+                                Todas
+                            </mat-option>
+                            <mat-option *ngFor="let release of listaRelease" [value]="release.nome">
+                                {{ release.nome }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
 
+                </div>
             </div>
 
             <div class="courses" fxLayout="row wrap" fxLayoutAlign="center">
 
                 <div class="course" *ngFor="let release of listaRelease" fxFlex="100" fxFlex.gt-xs="50"
-                    fxFlex.gt-sm="33" [ngClass]="release.nome" (click)="openDialog(release.nome, 'ANA CRISTINA BRASIL VILLELA')">
+                    fxFlex.gt-sm="33" [ngClass]="release.nome"
+                    (click)="openDialog(release.nome, 'ANA CRISTINA BRASIL VILLELA')">
 
                     <div class="course-content" fxLayout="column" fxFlex="1 1 auto">
 
-                        <div class="header" fxLayout="row" fxLayoutAlign="center center"
-                            [ngClass]="release.nome + '-bg'">
+                        <div class="header" fxLayout="row">
 
-                            <div class="category" fxFlex>
-                                {{release.nome}}
+                            <div class="category">
+                                <mat-icon class="secondary-text s-18">bar_chart</mat-icon>
                             </div>
 
-                            <div class="length" fxLayout="row" fxLayoutAlign="center center">
-                                <mat-icon class="length-icon s-20">access_time</mat-icon>
-                                <div class="min">{{release.total}}</div>
+                            <div class="length">
+                                <div class="min">{{release.nome}}</div>
                             </div>
 
                         </div>
 
                         <div class="content" fxLayout="column" fxLayoutAlign="center center" fxFlex="1 1 auto">
-                            <div class="h1">{{release.nome}}</div>
-                            <div class="updated">{{release.total}}</div>
+                            <div class="h1">{{release.total}}</div>
+                            <div class="updated">Total de Projetos</div>
                         </div>
 
                     </div>

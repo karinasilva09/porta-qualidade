@@ -1,5 +1,15 @@
 @import "src/@fuse/scss/fuse";
 
+@font-face {
+    font-family: 'SimplonBP';
+    src: url('../assets/fonts/SimplonBP/TTF/SimplonBP-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'SimplonOi-Headline';
+    src: url('../assets/fonts/SimplonOiHeadline/TTF/SimplonOi-Headline.ttf');
+}
+
 :host {
     position: relative;
     display: flex;
@@ -7,6 +17,7 @@
     width: 100%;
     height: 100%;
     min-width: 0;
+    font-family: SimplonBP !important;
 
     .theme-options-button {
         position: absolute;
