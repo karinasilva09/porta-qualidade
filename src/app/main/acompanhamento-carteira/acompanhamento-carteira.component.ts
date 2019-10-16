@@ -12,40 +12,55 @@ import { AcompanhamentoIndicadoresComponent } from '../acompanhamento-indicadore
 export class AcompanhamentoCarteiraComponent implements OnInit {
 
     listaRelease: ListaRelease[];
+    listaReleaseFiltro: ListaRelease[];
 
-    releaseAtual: string;
     releaseFiltradaPorRelease: ListaRelease[];
     releaseFiltrada: ListaRelease[];
 
+    dataAtual = new Date();
+
     selected = "todas";
+
+    mesAtual = this.dataAtual.getMonth() + 1;
+    anoAtual = this.dataAtual.getFullYear();
+    releaseAtual: string = this.anoAtual + '/' + this.mesAtual;
+    isReleaseAtual: boolean;
+    cor: string;
 
     constructor(private carteiraService: CarteiraService, public dialog: MatDialog) { }
 
     ngOnInit() {
         this.carteiraService.filterByName('ANA CRISTINA BRASIL VILLELA')
             .subscribe(res => {
+                this.listaReleaseFiltro = res.listaRelease;
                 this.listaRelease = res.listaRelease;
+                
+                this.releaseFiltradaPorRelease = this.listaRelease.filter((nomeRelease => {
+                    this.isReleaseAtual = nomeRelease.nome === this.releaseAtual;
+                }));
             },
                 err => {
                     console.log(err);
                 });
     }
 
-    filtroPorRelease($event) {
+    filtroPorRelease($event): void {
         const release: string = $event.value;
-
-        if(release !== 'todas'){
+        if(release === 'todas'){
+            this.listaReleaseFiltro = this.listaRelease;
+        } else {
             this.releaseFiltradaPorRelease = this.listaRelease.filter((nomeRelease) => { 
-                return nomeRelease === release;
+                return nomeRelease.nome === release;
             });
 
-            this.releaseFiltrada = [...this.releaseFiltradaPorRelease];
+            this.listaReleaseFiltro = this.releaseFiltradaPorRelease;
         }
     }
 
     openDialog(nomeRelease: string, nome: string): void {
+
         this.dialog.open(AcompanhamentoIndicadoresComponent, {
-            width: '40%',
+            width: '50%',
             data: { nomeRelease: nomeRelease, nome: nome }
         });
     }

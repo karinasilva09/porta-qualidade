@@ -6,6 +6,7 @@ export class AcompanhamentoCarteira {
 export class ListaRelease {
     nome: string;
     total: number;
+    isReleaseAtual?: boolean;
 }
 
 export class ListaIndicadores {

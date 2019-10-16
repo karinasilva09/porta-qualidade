@@ -18,7 +18,7 @@ export class AcompanhamentoIndicadoresComponent implements OnInit {
     nomeRelease: string;
     nome: string;
 
-    displayedColumns: string[] = ['nomeIndicador', 'valor', 'view'];
+    displayedColumns: string[] = ['nomeIndicador', 'valor'];
     dataSource: Indicador[];
 
     constructor(public dialogRef: MatDialogRef<AcompanhamentoIndicadoresComponent>,

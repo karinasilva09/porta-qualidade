@@ -1,64 +1,51 @@
 <div id="academy-courses" class="page-layout simple">
     <div class="content p-24">
-
         <div fxLayout="column" fxLayoutAlign="center">
-
-            <div class="box-filter">
-                <div class="title-filter">
-                    Filtro: Release
-                </div>
-                <div class="filters">
-                    <mat-label>Releases</mat-label>
-                </div>
-                <div class="filters" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="row"
-                    fxLayoutAlign.gt-xs="space-between center">
-
-                    <mat-form-field appearance="outline" class="category-selector">
-                        <mat-select (selectionChange)="filtroPorRelease($event)" [(value)]="selected">
-                            <mat-option [value]="'todas'">
-                                Todas
-                            </mat-option>
-                            <mat-option *ngFor="let release of listaRelease" [value]="release.nome">
-                                {{ release.nome }}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-
-                </div>
-            </div>
 
             <div class="courses" fxLayout="row wrap" fxLayoutAlign="center">
 
-                <div class="course" *ngFor="let release of listaRelease" fxFlex="100" fxFlex.gt-xs="50"
-                    fxFlex.gt-sm="33" [ngClass]="release.nome"
-                    (click)="openDialog(release.nome, 'ANA CRISTINA BRASIL VILLELA')">
-
-                    <div class="course-content" fxLayout="column" fxFlex="1 1 auto">
-
-                        <div class="header" fxLayout="row">
-
-                            <div class="category">
-                                <mat-icon class="secondary-text s-18">bar_chart</mat-icon>
-                            </div>
-
-                            <div class="length">
-                                <div class="min">{{release.nome}}</div>
-                            </div>
-
-                        </div>
-
-                        <div class="content" fxLayout="column" fxLayoutAlign="center center" fxFlex="1 1 auto">
-                            <div class="h1">{{release.total}}</div>
-                            <div class="updated">Total de Projetos</div>
-                        </div>
-
+                <div fxLayout="column" fxLayoutAlign="center start" class="titulo-pagina" style="width: 994px; margin-bottom: 5px;">
+                    <div fxLayout="row" fxLayoutAlign="start center" style="font-size: 15px; font-family: 'SimplonOi-Headline';">
+                        <mat-icon class="secondary-text s-18">home</mat-icon>
+                        <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                        <span class="secondary-text">Acompanhamento de Carteira</span>
                     </div>
-
                 </div>
 
+                <div class="box-filter">
+                    <div class="title-filter">
+                        Filtro: Release
+                    </div>
+                    <div class="filters">
+                        <mat-form-field class="category-selector">
+                            <mat-label class="label">Releases</mat-label>
+                            <mat-select class="select" (selectionChange)="filtroPorRelease($event)"
+                                [(value)]="selected">
+                                <mat-option [value]="'todas'">
+                                    Todas
+                                </mat-option>
+                                <mat-option *ngFor="let release of listaRelease" [value]="release.nome">
+                                    {{ release.nome }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="course" *ngFor="let release of listaReleaseFiltro" fxFlex="100" fxFlex.gt-xs="50"
+                    fxFlex.gt-sm="25" [ngClass]="release.nome"
+                    (click)="openDialog(release.nome, 'ANA CRISTINA BRASIL VILLELA')">
+                    <div [ngClass]="{'release-atual':isReleaseAtual}" class="release" fxLayout="column" fxFlex="1 1 auto" fxLayoutAlign="center center">
+                        <div class="header" fxLayout="row">
+                                {{ release.nome }}
+                        </div>
+                        <div class="content" fxLayout="column">
+                            <div class="h1">{{release.total}}</div>
+                            <div class="updated">Projetos</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
-
     </div>
 </div>
