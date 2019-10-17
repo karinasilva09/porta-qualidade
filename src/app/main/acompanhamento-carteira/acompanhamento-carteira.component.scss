@@ -61,7 +61,7 @@
         }
 
         .box-filter{
-            width: 994px;
+            width: 1003px;
             background-color: #FFF; 
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             border-radius: 4px;
@@ -95,8 +95,7 @@
             }
 
             .label{
-                font-size: 22px !important;
-                color: #000;
+                font-family: SimplonBP;
             }
         }
 
@@ -116,9 +115,84 @@
                 cursor: pointer;
 
                 &:hover {
-                    .course-content {
+                    .release {
                         border: none;
                         @include mat-elevation(20);
+                    }
+
+                    .releaseAtual {
+                        border: none;
+                        @include mat-elevation(20);
+                    }
+                }
+
+                .releaseAtual {
+                    border-radius: 4px;
+                    overflow: hidden;
+                    transition: box-shadow 200ms ease-in-out;
+                    @include mat-elevation(1);
+                    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    background-color: #1A698C;
+                    padding: 20px;
+                    color: #FFF;
+
+                    .header {
+                        height: 28px !important;
+                        min-height: 28px !important;
+                        max-height: 28px !important;
+                        font-family: 'SimplonOi-Headline';
+                        font-size: 20px;
+
+                        &.web-bg {
+                            background: mat-color($mat-blue, 500);
+                        }
+
+                        &.android-bg {
+                            background: mat-color($mat-green, 500);
+                        }
+
+                        &.firebase-bg {
+                            background: mat-color($mat-amber, 800);
+                        }
+
+                        &.cloud-bg {
+                            background: mat-color($mat-blue-grey, 500);
+                        }
+
+                        .category {
+                            width: 40px;
+                            height: 40px;
+                            padding: 10px;
+                            text-transform: capitalize;
+                            text-align: left;
+                            font-weight: 600;
+                            background-color: #1A698C;
+                            border-radius: 50%;
+                        }
+
+                        .secondary-text{
+                            width: 30px !important;
+                            height: auto;
+                            color: #FFF;
+                        }
+                    }
+
+                    .content {
+
+                        .h1 {
+                            font-family: 'SimplonOi-Headline';
+                            font-size: 50px;
+                            text-align: center;
+                        }
+
+                        .updated {
+                            font-family: 'SimplonOi-Headline';
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #FFF;
+                        }
                     }
                 }
 

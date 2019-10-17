@@ -1,0 +1,245 @@
+@import "src/@fuse/scss/fuse";
+
+#academy-courses {
+    .header {
+        position: relative;
+        height: 280px;
+        max-height: 280px;
+        text-align: center;
+        overflow: hidden;
+
+        .secondary-text {
+            font-size: 20px !important;
+        }
+
+        @include media-breakpoint("xs") {
+            height: 240px;
+            padding: 16px;
+        }
+    }
+
+    .content {
+        .category-selector {
+            min-width: 320px;
+        }
+
+        .box-filter {
+            width: 1003px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 4px;
+        }
+
+        .title-filter {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff6d00;
+            color: #fff;
+            border-radius: 4px 4px 0px 0px;
+            font-weight: 900;
+        }
+
+        .filters {
+            width: 100%;
+            max-width: 1040px;
+            margin: 0px auto;
+            padding: 10px 20px;
+
+            @include media-breakpoint("xs") {
+                margin: 0 auto;
+            }
+
+            .course-search {
+                width: 320px;
+
+                @include media-breakpoint("gt-xs") {
+                    margin-right: 16px;
+                }
+            }
+
+            .label {
+                font-family: SimplonBP;
+            }
+        }
+
+        .courses {
+            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
+
+            .no-courses {
+                font-size: 24px;
+                margin: 24px 0;
+                text-align: center;
+            }
+
+            .course {
+                padding: 5px;
+                .release {
+                    border-radius: 2px;
+                    overflow: hidden;
+                    transition: box-shadow 200ms ease-in-out;
+                    @include mat-elevation(1);
+                    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+                        0 3px 10px 0 rgba(0, 0, 0, 0.19);
+                    -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+                        0 3px 10px 0 rgba(0, 0, 0, 0.19);
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+                        0 3px 10px 0 rgba(0, 0, 0, 0.19);
+                    background-color: #fff;
+                    padding: 20px;
+
+                    .header {
+                        height: 28px !important;
+                        min-height: 28px !important;
+                        max-height: 28px !important;
+                        font-family: "SimplonOi-Headline";
+                        font-size: 16px;
+
+                        .category {
+                            width: 40px;
+                            height: 40px;
+                            padding: 10px;
+                            text-transform: capitalize;
+                            text-align: left;
+                            font-weight: 600;
+                            background-color: #1a698c;
+                            border-radius: 50%;
+                        }
+
+                        .secondary-text {
+                            width: 30px !important;
+                            height: auto;
+                            color: #fff;
+                        }
+                    }
+
+                    .content {
+                        .h1 {
+                            font-family: "SimplonOi-Headline";
+                            font-size: 50px;
+                            text-align: center;
+                        }
+
+                        .updated {
+                            font-family: "SimplonOi-Headline";
+                            font-size: 13px;
+                            font-weight: 600;
+                            color: #1a698c;
+                        }
+                    }
+                }
+
+                .release-name {
+                    float: left !important;
+                    border: 5px solid #000;
+                    width: 50%;
+                }
+            }
+        }
+        
+        .parte {
+            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
+
+            .no-courses {
+                font-size: 24px;
+                margin: 24px 0;
+                text-align: center;
+            }
+
+            .course {
+                padding: 5px;
+                .release {
+                    border-radius: 4px;
+                    overflow: hidden;
+                    transition: box-shadow 200ms ease-in-out;
+                    @include mat-elevation(1);
+                    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    background-color: #fff;
+
+                    .header {
+                        height: 30px !important;
+                        min-height: 30px !important;
+                        max-height: 30px !important;
+                        font-size: 15px;
+                        background-color: #ff6d00;
+                        color: #fff;
+                        padding: 5px 5px;
+
+                        &.web-bg {
+                            background: mat-color($mat-blue, 500);
+                        }
+
+                        &.android-bg {
+                            background: mat-color($mat-green, 500);
+                        }
+
+                        &.firebase-bg {
+                            background: mat-color($mat-amber, 800);
+                        }
+
+                        &.cloud-bg {
+                            background: mat-color($mat-blue-grey, 500);
+                        }
+                    }
+
+                    .header-defeito {
+                        height: 30px !important;
+                        min-height: 30px !important;
+                        max-height: 30px !important;
+                        font-size: 15px;
+                        background-color: #C1272D;
+                        color: #fff;
+                        padding: 5px 5px;
+
+                        &.web-bg {
+                            background: mat-color($mat-blue, 500);
+                        }
+
+                        &.android-bg {
+                            background: mat-color($mat-green, 500);
+                        }
+
+                        &.firebase-bg {
+                            background: mat-color($mat-amber, 800);
+                        }
+
+                        &.cloud-bg {
+                            background: mat-color($mat-blue-grey, 500);
+                        }
+                    }
+
+                    .content {
+                        padding: 10px;
+
+                        h4 {
+                           margin: 0;
+                        }
+
+                        ul {
+                            margin: 0;
+                        }
+
+                        .agente-envolvido {
+                            font-family: "SimplonOi-Headline";
+                        }
+                    }
+                }
+
+                .release-name {
+                    float: left !important;
+                    border: 5px solid #000;
+                    width: 50%;
+                }
+            }
+        }
+    }
+}

@@ -5,7 +5,7 @@
             <div class="courses" fxLayout="row wrap" fxLayoutAlign="center">
 
                 <div fxLayout="column" fxLayoutAlign="center start" class="titulo-pagina" style="width: 994px; margin-bottom: 5px;">
-                    <div fxLayout="row" fxLayoutAlign="start center" style="font-size: 15px; font-family: 'SimplonOi-Headline';">
+                    <div fxLayout="row" fxLayoutAlign="start center">
                         <mat-icon class="secondary-text s-18">home</mat-icon>
                         <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
                         <span class="secondary-text">Acompanhamento de Carteira</span>
@@ -19,8 +19,7 @@
                     <div class="filters">
                         <mat-form-field class="category-selector">
                             <mat-label class="label">Releases</mat-label>
-                            <mat-select class="select" (selectionChange)="filtroPorRelease($event)"
-                                [(value)]="selected">
+                            <mat-select class="select" (selectionChange)="filtroPorRelease($event)">
                                 <mat-option [value]="'todas'">
                                     Todas
                                 </mat-option>
@@ -31,11 +30,21 @@
                         </mat-form-field>
                     </div>
                 </div>
-
-                <div class="course" *ngFor="let release of listaReleaseFiltro" fxFlex="100" fxFlex.gt-xs="50"
-                    fxFlex.gt-sm="25" [ngClass]="release.nome"
+                
+                <div 
+                    class="course" 
+                    *ngFor="let release of listaReleaseFiltro" 
+                    fxFlex="100" 
+                    fxFlex.gt-xs="50"
+                    fxFlex.gt-sm="25"
                     (click)="openDialog(release.nome, 'ANA CRISTINA BRASIL VILLELA')">
-                    <div [ngClass]="{'release-atual':isReleaseAtual}" class="release" fxLayout="column" fxFlex="1 1 auto" fxLayoutAlign="center center">
+
+                    <div 
+                        class="{{ !release.isReleaseAtual ? 'release' : 'releaseAtual' }}" 
+                        fxLayout="column" 
+                        fxFlex="1 1 auto" 
+                        fxLayoutAlign="center center">
+
                         <div class="header" fxLayout="row">
                                 {{ release.nome }}
                         </div>

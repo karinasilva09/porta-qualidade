@@ -58,7 +58,8 @@
         "prismjs": "1.16.0",
         "rxjs": "6.5.2",
         "web-animations-js": "2.3.2",
-        "zone.js": "0.9.1"
+        "zone.js": "0.9.1",
+        "angular2-cookie": "^1.2.6"
     },
     "devDependencies": {
         "@angular/cli": "8.1.2",

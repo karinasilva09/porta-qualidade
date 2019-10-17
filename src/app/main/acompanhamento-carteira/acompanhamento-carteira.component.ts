@@ -27,6 +27,8 @@ export class AcompanhamentoCarteiraComponent implements OnInit {
     isReleaseAtual: boolean;
     cor: string;
 
+    releaseAtualElemento: ListaRelease;
+
     constructor(private carteiraService: CarteiraService, public dialog: MatDialog) { }
 
     ngOnInit() {
@@ -34,9 +36,10 @@ export class AcompanhamentoCarteiraComponent implements OnInit {
             .subscribe(res => {
                 this.listaReleaseFiltro = res.listaRelease;
                 this.listaRelease = res.listaRelease;
-                
+
                 this.releaseFiltradaPorRelease = this.listaRelease.filter((nomeRelease => {
                     this.isReleaseAtual = nomeRelease.nome === this.releaseAtual;
+                    nomeRelease.isReleaseAtual = this.isReleaseAtual;
                 }));
             },
                 err => {
